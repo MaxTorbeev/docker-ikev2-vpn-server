@@ -5,7 +5,6 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install strongswan \
       strongswan-pki \
       iptables \
-      systemctl \
       uuid-runtime \
       ndppd \
       openssl \
