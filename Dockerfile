@@ -4,8 +4,7 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install strongswan \
       strongswan-pki \
-      strongswan-plugin-farp \
-      strongswan-plugin-dhcp \
+      ibcharon-extra-plugins \
       iptables \
       uuid-runtime \
       ndppd \
