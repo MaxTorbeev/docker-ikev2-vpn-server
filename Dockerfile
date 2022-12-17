@@ -12,6 +12,7 @@ RUN apt-get update \
       vim \
     && rm -rf /var/lib/apt/lists/* # cache busted 20160406.1
 
+RUN depmod
 RUN rm /etc/ipsec.secrets
 RUN mkdir /config
 RUN (cd /etc && ln -s /config/ipsec.secrets .)
@@ -37,7 +38,7 @@ RUN ipsec pki --pub --in ~/pki/private/server-key.pem --type rsa \
             --flag serverAuth --flag ikeIntermediate --outform pem \
         >  ~/pki/certs/server-cert.pem
 
-RUN cp -r ~/pki/* /etc/ipsec.d/
+RUN (cp -r ~/pki/* /etc/ipsec.d/)
 
 ADD ./etc/* /etc/
 ADD ./bin/* /usr/bin/
