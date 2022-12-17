@@ -20,7 +20,6 @@ RUN mkdir ~/pki
 RUN mkdir ~/pki/cacerts
 RUN mkdir ~/pki/private
 RUN mkdir ~/pki/certs
-RUN (mkdir -p ~/pki/{cacerts,certs,private})
 RUN (chmod 700 ~/pki)
 RUN (ipsec pki --gen --type rsa --size 4096 --outform pem > ~/pki/private/ca-key.pem)
 RUN (ipsec pki --self --ca --lifetime 3650 --in ~/pki/private/ca-key.pem \
@@ -37,7 +36,7 @@ RUN (ipsec pki --pub --in ~/pki/private/server-key.pem --type rsa \
             --flag serverAuth --flag ikeIntermediate --outform pem \
         >  ~/pki/certs/server-cert.pem)
 
-RUN (cp -r ~/pki/* /etc/ipsec.d/)
+RUN cp -r ~/pki/* /etc/ipsec.d/
 
 ADD ./etc/* /etc/
 ADD ./bin/* /usr/bin/
