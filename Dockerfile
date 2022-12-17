@@ -1,10 +1,11 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.10
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install strongswan \
       strongswan-pki \
-      ibcharon-extra-plugins \
+      strongswan-plugin-farp \
+      strongswan-plugin-dhcp \
       iptables \
       uuid-runtime \
       ndppd \
