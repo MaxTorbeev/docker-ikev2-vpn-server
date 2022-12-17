@@ -16,6 +16,7 @@ RUN rm /etc/ipsec.secrets
 RUN mkdir /config
 RUN (cd /etc && ln -s /config/ipsec.secrets .)
 
+RUN mkdir ~/pki
 RUN (mkdir -p ~/pki/{cacerts,certs,private})
 RUN (chmod 700 ~/pki)
 RUN (ipsec pki --gen --type rsa --size 4096 --outform pem > ~/pki/private/ca-key.pem)
