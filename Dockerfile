@@ -37,7 +37,7 @@ RUN ipsec pki --pub --in ~/pki/private/server-key.pem --type rsa \
             --flag serverAuth --flag ikeIntermediate --outform pem \
         >  ~/pki/certs/server-cert.pem
 
-RUN sudo cp -r ~/pki/* /etc/ipsec.d/
+RUN cp -r ~/pki/* /etc/ipsec.d/
 
 ADD ./etc/* /etc/
 ADD ./bin/* /usr/bin/
