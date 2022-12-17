@@ -12,7 +12,6 @@ RUN apt-get update \
       vim \
     && rm -rf /var/lib/apt/lists/* # cache busted 20160406.1
 
-RUN depmod
 RUN rm /etc/ipsec.secrets
 RUN mkdir /config
 RUN (cd /etc && ln -s /config/ipsec.secrets .)
