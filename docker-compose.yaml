@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  vpn:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${PROJECT_NAME}_ike2_vpn
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 4500:4500
+      - 500:500
