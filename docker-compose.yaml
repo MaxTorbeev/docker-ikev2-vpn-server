@@ -10,3 +10,8 @@ services:
     ports:
       - 4500:4500
       - 500:500
+    cap_add:
+      - ALL
+    volumes:
+      - /lib/modules:/lib/modules:ro
+    privileged: true
