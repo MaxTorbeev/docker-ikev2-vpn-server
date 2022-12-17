@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ${PROJECT_NAME}_ike2_vpn
+    container_name: vpn
     restart: unless-stopped
     tty: true
     ports:
