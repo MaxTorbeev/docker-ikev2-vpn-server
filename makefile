@@ -1,8 +1,2 @@
-
-php:
-	docker exec -it devtool_php bash
-build:
-	docker-compose up --build -d
-supervisor:
-	docker exec -i devtool_php sh -c '/usr/bin/supervisord'
-
+vpn:
+	docker exec -it vpn bash
